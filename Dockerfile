@@ -1,11 +1,10 @@
 FROM golang:latest
 
+COPY . /go/src/app
 WORKDIR /go/src/app
 
-COPY . .
-
-RUN go build -o server .
+RUN go build main.go
 
 EXPOSE 8888
 
-CMD ["./server"]
+CMD ["./main"]
