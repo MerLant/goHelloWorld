@@ -8,7 +8,9 @@ RUN go build -o server main.go
 
 FROM alpine:latest
 
-COPY --from=builder /app/server /usr/local/bin/server
+WORKDIR /usr/local/bin/
+
+COPY --from=builder /app/server .
 
 EXPOSE 8888
 
