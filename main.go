@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "net/http"
+)
 
 func main() {
-	// text for commit
-    fmt.Println("Hello, World!")
+    http.HandleFunc("/", "Hello World")
+    http.ListenAndServe(":8888", nil)
 }
